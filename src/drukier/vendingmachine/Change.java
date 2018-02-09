@@ -1,13 +1,14 @@
 package drukier.vendingmachine;
 
 public class Change {
+
 	private int quarters;
 	private int dimes;
 	private int nickels;
 	private int pennies;
-	private double totalChange;
 
-	public Change() {
+	public Change(int amount) {
+		makeChange(amount);
 	}
 
 	public int getQuarters() {
@@ -42,21 +43,21 @@ public class Change {
 		this.pennies = pennies;
 	}
 
-	public void makeChange(double totalChange) {
-		for (quarters = 0; totalChange >= 25; quarters++) {
-			totalChange = (totalChange - 25);
+	public void makeChange(double amount) {
+		for (quarters = 0; amount >= 25; quarters++) {
+			amount = (amount - 25);
 		}
 		setQuarters(quarters);
-		for (dimes = 0; totalChange >= 10; dimes++) {
-			totalChange = (totalChange - 10);
+		for (dimes = 0; amount >= 10; dimes++) {
+			amount = (amount - 10);
 		}
 		setDimes(dimes);
-		for (nickels = 0; totalChange >= 05; nickels++) {
-			totalChange = (totalChange - 05);
+		for (nickels = 0; amount >= 05; nickels++) {
+			amount = (amount - 05);
 		}
 		setNickels(nickels);
-		for (pennies = 0; totalChange >= 01; pennies++) {
-			totalChange = (totalChange - 01);
+		for (pennies = 0; amount >= 01; pennies++) {
+			amount = (amount - 01);
 		}
 		setPennies(pennies);
 	}

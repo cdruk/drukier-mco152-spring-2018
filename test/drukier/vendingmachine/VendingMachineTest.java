@@ -9,10 +9,10 @@ public class VendingMachineTest {
 	@Test
 	public void pay() {
 		//given
-		 VendingMachine waterbottle = new VendingMachine(1.73, 3.60);
+		 VendingMachine machine = new VendingMachine();
 		
 		//when
-		 Change change = ;
+		 Change change = machine.pay(1.73, 3.60);
 		
 		//then
 		assertEquals(7, change.getQuarters());

@@ -1,25 +1,19 @@
 package drukier.vendingmachine;
 
 public class VendingMachine {
-	private double price;
-	private double paid;
+
 	private String changeOutput;
 	Change change;
 
 	
-	public VendingMachine(double price, double paid){
-		this.price = price;
-		this.paid = paid;
-		int amount = getChangeAmount();
-		change = new Change(); 
-		pay(price, paid);
-		changeOutput = changeOutput();
+	public VendingMachine(){
 
 	}
-	
-	private int getChangeAmount()
-	{
-		return (int) Math.round((paid-price)*100);
+
+	public Change pay(double price, double paid) {
+		int amount = (int) Math.round((paid-price)*100);
+		Change change = new Change(amount);
+		return change;
 	}
 	
 	private String changeOutput(){
@@ -28,12 +22,6 @@ public class VendingMachine {
 				change.getDimes() + " Dimes\n" +
 				change.getNickels() + " Nickels\n" +
 				change.getPennies() + " Pennies\n");
-	}
-	
-	public Change pay(double price, double paid) {
-		int amount = (int) Math.round((paid-price)*100);
-		change.makeChange(amount);
-		return change;
 	}
 
 	public String getChangeOutput() {

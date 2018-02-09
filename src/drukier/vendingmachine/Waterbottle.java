@@ -3,9 +3,12 @@ package drukier.vendingmachine;
 public class Waterbottle {
 	
 	public static void main(String [] args){
-		VendingMachine waterbottle = new VendingMachine(1.73, 3.60);
+		VendingMachine machine = new VendingMachine();
 		
-		System.out.println(waterbottle.getChangeOutput());
+		
+		
+		
+		System.out.println();
 	}
 
 }
