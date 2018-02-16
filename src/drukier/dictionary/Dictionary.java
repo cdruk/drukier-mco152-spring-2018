@@ -23,10 +23,10 @@ public class Dictionary {
 			Boolean hasSpace = line.contains("\\s+");
 			if (hasSpace) {
 				String[] nextLine = dictionaryFile.nextLine().split(" ", 2);
-				Definition entry = new Definition(nextLine[0], nextLine[1]);
+				dictionary.add(new Definition(nextLine[0], nextLine[1]));
 			} else {
 				String nextLine = dictionaryFile.nextLine();
-				Definition entry = new Definition(nextLine, null);
+				dictionary.add(new Definition(nextLine, null));
 			}
 		}
 	}
@@ -41,8 +41,8 @@ public class Dictionary {
 	
 	private boolean contains(String word) {
 		String checkWord = word.toUpperCase();
-		for (int ii = 0; ii <= dictionary.size(); ii++) {
-			if (dictionary.get(ii).getWord().equals(checkWord)) {
+		for (int i = 0; i <= dictionary.size(); i++) {
+			if (dictionary.get(i).getWord().equals(checkWord)) {
 				return true;
 			}
 
@@ -53,9 +53,9 @@ public class Dictionary {
 	private String getDefinition(String word) {
 		String checkWord = word.toUpperCase();
 		String definition = null;
-		for (int ii = 0; ii <= dictionary.size(); ii++) {
-			if (dictionary.get(ii).getWord().equals(checkWord)) {
-				definition = dictionary.get(ii).getDefinition();
+		for (int i = 0; i <= dictionary.size(); i++) {
+			if (dictionary.get(i).getWord().equals(checkWord)) {
+				definition = dictionary.get(i).getDefinition();
 				break;
 			}
 		}
