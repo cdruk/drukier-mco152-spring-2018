@@ -7,8 +7,12 @@ import org.junit.Test;
 public class DictionaryTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testcontains() {
+		//given
+		
+		//when
+		
+		//then
 	}
 
 }

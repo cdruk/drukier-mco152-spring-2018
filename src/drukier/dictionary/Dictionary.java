@@ -24,26 +24,30 @@ public class Dictionary {
 			if (hasSpace) {
 				String[] nextLine = dictionaryFile.nextLine().split(" ", 2);
 				Definition entry = new Definition(nextLine[0], nextLine[1]);
-				System.out.println(entry.getWord() + " " + entry.getDefinition());
 			} else {
 				String nextLine = dictionaryFile.nextLine();
 				Definition entry = new Definition(nextLine, null);
-				System.out.println(entry.getWord() + " " + entry.getDefinition());
 			}
 		}
 	}
-	
 
+	public String define(String word) {
+		String fullDefinition = null;
+		if (contains(word)) {
+			fullDefinition = (word + " " + getDefinition(word));
+		}
+		return fullDefinition;
+	}
+	
 	private boolean contains(String word) {
 		String checkWord = word.toUpperCase();
-		Boolean contains = false;
 		for (int ii = 0; ii <= dictionary.size(); ii++) {
 			if (dictionary.get(ii).getWord().equals(checkWord)) {
-				contains = true;
-				break;
+				return true;
 			}
+
 		}
-		return contains;
+		return false;
 	}
 
 	private String getDefinition(String word) {
@@ -57,4 +61,6 @@ public class Dictionary {
 		}
 		return definition;
 	}
+
+	
 }
