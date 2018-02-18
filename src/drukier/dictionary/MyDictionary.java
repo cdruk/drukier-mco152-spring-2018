@@ -8,7 +8,9 @@ public class MyDictionary {
 		String myDictionary = "/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/VendingMachine/dictionary.txt";
 		//
 		Dictionary mine = new Dictionary(myDictionary);
-		mine.define("apple");
+		System.out.println(mine.define("apple"));
+		System.out.println(mine.define("apdle"));
+		System.out.println(mine.define("ardvark"));
 
 	}
 }

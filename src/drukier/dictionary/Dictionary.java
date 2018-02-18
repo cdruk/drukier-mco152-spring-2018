@@ -22,11 +22,11 @@ public class Dictionary {
 			String line = dictionaryFile.nextLine();
 			boolean hasSpace = line.contains(" ");
 			if (hasSpace) {
-				String[] nextLine = dictionaryFile.nextLine().split(" ", 2);
-				dictionary.add(new Definition(nextLine[0], nextLine[1]));
+				String[] thisLine = line.split(" ", 2);
+				dictionary.add(new Definition(thisLine[0], thisLine[1]));
 			} else {
-				String nextLine = dictionaryFile.nextLine();
-				dictionary.add(new Definition(nextLine, null));
+				String thisLine = dictionaryFile.nextLine();
+				dictionary.add(new Definition(thisLine, null));
 			}
 		}
 	}
@@ -34,11 +34,13 @@ public class Dictionary {
 	public String define(String word) {
 		String fullDefinition = null;
 		if (contains(word)) {
-			fullDefinition = (word + " " + getDefinition(word));
+			fullDefinition = (word + ": " + getDefinition(word));
+		} else {
+			fullDefinition = (word + "is not a valid entry");
 		}
 		return fullDefinition;
 	}
-	
+
 	private boolean contains(String word) {
 		String checkWord = word.toUpperCase();
 		for (int i = 0; i <= dictionary.size(); i++) {
@@ -62,5 +64,4 @@ public class Dictionary {
 		return definition;
 	}
 
-	
 }
