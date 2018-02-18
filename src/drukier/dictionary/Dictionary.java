@@ -20,7 +20,7 @@ public class Dictionary {
 
 		while (dictionaryFile.hasNext()) {
 			String line = dictionaryFile.nextLine();
-			Boolean hasSpace = line.contains("\\s+");
+			boolean hasSpace = line.contains(" ");
 			if (hasSpace) {
 				String[] nextLine = dictionaryFile.nextLine().split(" ", 2);
 				dictionary.add(new Definition(nextLine[0], nextLine[1]));
