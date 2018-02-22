@@ -2,8 +2,6 @@ package drukier.hashdictionary;
 
 import java.io.FileNotFoundException;
 
-import drukier.dictionary.Dictionary;
-
 public class MyDictionary {
 	public static void main(String[] args) throws FileNotFoundException {
 		//
