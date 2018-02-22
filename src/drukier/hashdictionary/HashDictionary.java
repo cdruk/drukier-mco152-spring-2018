@@ -27,7 +27,7 @@ public class HashDictionary {
 	}
 
 
-	private boolean contains(String word) {
+	public boolean contains(String word) {
 		String checkWord = word.toUpperCase();
 		if (dictionary.containsKey(checkWord)) {
 			return true;
