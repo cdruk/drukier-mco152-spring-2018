@@ -11,7 +11,7 @@ public class DictionaryTest {
 	@Test
 	public void testDefine() throws FileNotFoundException{
 		// given
-		HashDictionary D = new HashDictionary("/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/VendingMachine/dictionary.txt");
+		HashDictionary D = new HashDictionary("/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/drukier-mco152-spring-2018/dictionary.txt");
 		
 		// when
 			String word = "apple";
