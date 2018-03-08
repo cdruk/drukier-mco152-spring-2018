@@ -12,7 +12,7 @@ public class ChangeGui extends JFrame {
 	private JTextField dimes = new JTextField();
 	private JTextField nickels = new JTextField();
 	private JTextField pennies = new JTextField();
-	JButton makeChange = new JButton("Make Change");
+	private JButton makeChange = new JButton("Make Change");
 
 	public ChangeGui() {
 		setTitle("Vending Machine");
@@ -43,7 +43,8 @@ public class ChangeGui extends JFrame {
 	}
 
 	public void makeChange(ActionEvent event) {
-		Change change = VendingMachine.pay(Double.parseDouble(price.getText()), Double.parseDouble(paid.getText()));
+		Change change = VendingMachine.pay(Double.parseDouble(price.getText()), 
+				Double.parseDouble(paid.getText()));
 		quarters.setText(Integer.toString(change.getQuarters()));
 		dimes.setText(Integer.toString(change.getDimes()));
 		nickels.setText(Integer.toString(change.getNickels()));

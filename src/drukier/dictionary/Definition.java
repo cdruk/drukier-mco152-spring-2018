@@ -1,4 +1,4 @@
-package drukier.hashdictionary;
+package drukier.dictionary;
 
 public class Definition {
 	private String word;

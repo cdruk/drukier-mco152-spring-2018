@@ -1,4 +1,4 @@
-package drukier.hashdictionary;
+package drukier.dictionary;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,9 +7,9 @@ import java.io.FileNotFoundException;
 import javax.swing.*;
 
 public class DictionaryGui extends JFrame {
-	JTextField word = new JTextField("Insert word here.");
-	JButton define = new JButton("Define");
-	JTextArea definition = new JTextArea();
+	private JTextField word = new JTextField("Insert word here.");
+	private JButton define = new JButton("Define");
+	private JTextArea definition = new JTextArea();
 
 	public DictionaryGui() {
 		setTitle("Best Dictionary Ever");
@@ -42,7 +42,7 @@ public class DictionaryGui extends JFrame {
 	public void defineWord(ActionEvent event) throws FileNotFoundException {
 		String myDictionary = "/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/drukier-mco152-spring-2018/dictionary.txt";
 
-		HashDictionary dictionary = new HashDictionary(myDictionary);
+		Dictionary dictionary = new Dictionary(myDictionary);
 
 		definition.setText(dictionary.define(word.getText()));
 

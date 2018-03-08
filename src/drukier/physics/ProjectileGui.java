@@ -10,11 +10,11 @@ import javax.swing.*;
 
 public class ProjectileGui extends JFrame {
 
-	JFormattedTextField angle = new JFormattedTextField("0");
-	JFormattedTextField velocity = new JFormattedTextField("0");
-	JFormattedTextField time = new JFormattedTextField("0");
-	JFormattedTextField x = new JFormattedTextField();
-	JFormattedTextField y = new JFormattedTextField();
+	private JFormattedTextField angle = new JFormattedTextField("0");
+	private JFormattedTextField velocity = new JFormattedTextField("0");
+	private JFormattedTextField time = new JFormattedTextField("0");
+	private JFormattedTextField x = new JFormattedTextField();
+	private JFormattedTextField y = new JFormattedTextField();
 
 	public ProjectileGui() {
 		setTitle("Projectile Viewer");
@@ -51,11 +51,10 @@ public class ProjectileGui extends JFrame {
 		double thisVelocity = Double.parseDouble(velocity.getText());
 		double thisTime = Double.parseDouble(time.getText());
 
-		
-			Projectile projectile = new Projectile(thisAngle, thisVelocity);
-			x.setValue(Double.toString(projectile.findX(thisTime)));
-			y.setValue(Double.toString(projectile.findY(thisTime)));
-		
+		Projectile projectile = new Projectile(thisAngle, thisVelocity);
+		x.setValue(Double.toString(projectile.findX(thisTime)));
+		y.setValue(Double.toString(projectile.findY(thisTime)));
+
 	}
 
 	public static void main(String[] args) {
