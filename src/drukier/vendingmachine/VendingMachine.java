@@ -10,7 +10,7 @@ public class VendingMachine {
 
 	}
 
-	public Change pay(double price, double paid) {
+	public static Change pay(double price, double paid) {
 		int amount = (int) Math.round((paid-price)*100);
 		Change change = new Change(amount);
 		return change;

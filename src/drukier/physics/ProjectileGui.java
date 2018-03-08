@@ -31,15 +31,15 @@ public class ProjectileGui extends JFrame
 		JButton button = new JButton("Button");
 		button.addActionListener(this::changeTextField);
 		
-//		ProjectileActionListener listener = new ProjectileActionListener(textField);
-//		button.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				textField.setText("Action Performed");
-//			}
-//			
-//		});
+		ProjectileActionListener listener = new ProjectileActionListener(textField);
+		button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("Action Performed");
+			}
+			
+		});
 		panel.add(button, BorderLayout.CENTER);
 		
 		panel.add(new JLabel("Can we take a break?"), BorderLayout.SOUTH);
