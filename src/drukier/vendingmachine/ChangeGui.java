@@ -8,10 +8,10 @@ import javax.swing.*;
 public class ChangeGui extends JFrame {
 	private JTextField price = new JTextField("");
 	private JTextField paid = new JTextField("");
-	JTextField quarters = new JTextField();
-	JTextField dimes = new JTextField();
-	JTextField nickels = new JTextField();
-	JTextField pennies = new JTextField();
+	private JTextField quarters = new JTextField();
+	private JTextField dimes = new JTextField();
+	private JTextField nickels = new JTextField();
+	private JTextField pennies = new JTextField();
 	JButton makeChange = new JButton("Make Change");
 
 	public ChangeGui() {

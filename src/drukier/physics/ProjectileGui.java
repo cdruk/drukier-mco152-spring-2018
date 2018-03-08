@@ -4,12 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
 
 import javax.swing.*;
 
 public class ProjectileGui extends JFrame
 {
-	private JTextField textField;
+	
+	JTextField angle = new JTextField("");
+	JTextField velocity = new JTextField("");
+	JTextField time = new JTextField("");
+	JTextField x = new JTextField();
+	JTextField y = new JTextField();
+	
 	public ProjectileGui()
 	{
 		setTitle("Projectile Viewer");
@@ -17,40 +24,40 @@ public class ProjectileGui extends JFrame
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
+		panel.setLayout(new GridLayout(6,0));
 		
-		JPanel northPanel = new JPanel();
-		northPanel.setLayout(new BoxLayout(northPanel, BoxLayout.Y_AXIS));
-		northPanel.add(new JLabel("Hello World"));
-		northPanel.add(new JLabel("Goodbye World"));
-		panel.add(northPanel, BorderLayout.NORTH);
+		panel.add(new JLabel("Angle:", SwingConstants.CENTER));
+		panel.add(angle);
+		panel.add(new JLabel("Velocity:", SwingConstants.CENTER));
+		panel.add(velocity);
+		panel.add(new JLabel("Time:", SwingConstants.CENTER));
+		panel.add(time);
+		panel.add(new JLabel("Coordinates:", SwingConstants.CENTER));
+		panel.add(new JLabel());
+		panel.add(new JLabel("X:", SwingConstants.CENTER));
+		panel.add(x);
+		panel.add(new JLabel("Y: ", SwingConstants.CENTER));
+		panel.add(y);
 		
-		textField = new JTextField("Text Field");
-		panel.add(textField, BorderLayout.WEST);
 		
-		JButton button = new JButton("Button");
-		button.addActionListener(this::changeTextField);
+		angle.addPropertyChangeListener("angle", this::findCoordinates);
+		velocity.addPropertyChangeListener("velocity", this::findCoordinates);
+		time.addPropertyChangeListener("time", this::findCoordinates);
 		
-		ProjectileActionListener listener = new ProjectileActionListener(textField);
-		button.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				textField.setText("Action Performed");
-			}
-			
-		});
-		panel.add(button, BorderLayout.CENTER);
-		
-		panel.add(new JLabel("Can we take a break?"), BorderLayout.SOUTH);
 		
 		add(panel);
 		
 	}
 	
-	public void changeTextField(ActionEvent event) {
-		textField.setText("Action Performed");
+	public void findCoordinates(PropertyChangeEvent event) {
+		double thisAngle = Double.parseDouble(angle.getText());
+		double thisVelocity = Double.parseDouble(velocity.getText());
+		double thisTime = Double.parseDouble(time.getText());
+		Projectile projectile = new Projectile(thisAngle, thisVelocity);
+		x.setText(Double.toString(projectile.findX(thisTime)));
+		y.setText(Double.toString(projectile.findY(thisTime)));
 	}
+		
 	
 	public static void main(String[] args)
 	{
