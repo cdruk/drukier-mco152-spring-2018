@@ -10,8 +10,14 @@ public class DictionaryGui extends JFrame {
 	private JTextField word = new JTextField("Insert word here.");
 	private JButton define = new JButton("Define");
 	private JTextArea definition = new JTextArea();
+	private Dictionary dictionary;
 
-	public DictionaryGui() {
+	public DictionaryGui() throws FileNotFoundException {
+		
+		String myDictionary = "/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/drukier-mco152-spring-2018/dictionary.txt";
+
+		this.dictionary = new Dictionary(myDictionary);
+		
 		setTitle("Best Dictionary Ever");
 		setSize(800, 400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -28,27 +34,18 @@ public class DictionaryGui extends JFrame {
 		panel.add(definition, BorderLayout.CENTER);
 
 		define.addActionListener(e -> {
-			try {
-				defineWord(e);
-			} catch (FileNotFoundException e1) {
-
-				e1.printStackTrace();
-			}
+			defineWord(e);
 		});
 
 		add(panel);
 	}
 
-	public void defineWord(ActionEvent event) throws FileNotFoundException {
-		String myDictionary = "/Users/chana/Documents/Touro/Spring 2018/Computer Methodology/drukier-mco152-spring-2018/dictionary.txt";
-
-		Dictionary dictionary = new Dictionary(myDictionary);
-
+	public void defineWord(ActionEvent event)  {
 		definition.setText(dictionary.define(word.getText()));
 
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		new DictionaryGui().setVisible(true);
 	}
 }

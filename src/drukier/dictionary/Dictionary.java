@@ -28,14 +28,14 @@ public class Dictionary {
 
 
 	public boolean contains(String word) {
-		String checkWord = word.toUpperCase();
+		String checkWord = word.toLowerCase();
 		return dictionary.containsKey(checkWord);
 	}
 
 	public String define(String word) {
 		String fullDefinition = null;
 		if (dictionary.containsKey(word.toLowerCase())) {
-			fullDefinition = (word + ": " + dictionary.get(word));
+			fullDefinition = (word + ": " + dictionary.get(word.toLowerCase()));
 		} else {
 			fullDefinition = ("\"" + word + "\"" + " is not a valid entry");
 		}
