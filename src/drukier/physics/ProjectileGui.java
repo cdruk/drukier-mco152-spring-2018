@@ -52,8 +52,8 @@ public class ProjectileGui extends JFrame {
 		double thisTime = Double.parseDouble(time.getText());
 
 		Projectile projectile = new Projectile(thisAngle, thisVelocity);
-		x.setValue(Double.toString(projectile.findX(thisTime)));
-		y.setValue(Double.toString(projectile.findY(thisTime)));
+		x.setValue(Double.toString(projectile.getX(thisTime)));
+		y.setValue(Double.toString(projectile.getY(thisTime)));
 
 	}
 

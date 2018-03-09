@@ -12,7 +12,7 @@ public class ProjectileTest {
 		Projectile rock = new Projectile(72, 23);
 		
 		//when
-		double x = rock.findX(10);
+		double x = rock.getX(10);
 		
 		//then
 		assertEquals(71.0739, x, 0.1);
@@ -24,7 +24,7 @@ public class ProjectileTest {
 		Projectile rock = new Projectile(72, 23);
 		
 		//when
-		double y = rock.findY(10);
+		double y = rock.getY(10);
 		
 		//then
 		assertEquals(-271.2570, y, 0.1);
