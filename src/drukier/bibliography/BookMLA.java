@@ -20,8 +20,8 @@ public class BookMLA {
 	private String first;
 	private String title;
 	private String chapter; // optional
-	private String other_first; // optional
 	private String other_last; // optional
+	private String other_first; // optional
 	private String edition; // optional
 	private String volume; // optional
 	private String publisher;
@@ -68,20 +68,20 @@ public class BookMLA {
 		this.chapter = chapter;
 	}
 
-	public String getOther_first() {
-		return other_first;
-	}
-
-	public void setOther_first(String other_first) {
-		this.other_first = other_first;
-	}
-
 	public String getOther_last() {
 		return other_last;
 	}
 
 	public void setOther_last(String other_last) {
 		this.other_last = other_last;
+	}
+
+	public String getOther_first() {
+		return other_first;
+	}
+
+	public void setOther_first(String other_first) {
+		this.other_first = other_first;
 	}
 
 	public String getEdition() {

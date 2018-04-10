@@ -6,14 +6,12 @@ import java.io.FileNotFoundException;
 
 import javax.swing.*;
 
-import drukier.dictionary.DictionaryGui;
+public class BibliographyGUI extends JFrame {
 
-public class FormatSelectorGUI extends JFrame {
-	
-	private JButton MLA = new JButton();
-	private JButton APA = new JButton();
+	private JButton MLA = new JButton("MLA");
+	private JButton APA = new JButton("APA");
 
-	public FormatSelectorGUI() {
+	public BibliographyGUI() {
 		setTitle("Chose Citation Format");
 		setSize(400, 100);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -30,12 +28,11 @@ public class FormatSelectorGUI extends JFrame {
 		centerPanel.add(APA, SwingConstants.CENTER);
 		centerPanel.add(MLA, SwingConstants.CENTER);
 		panel.add(centerPanel, BorderLayout.CENTER);
-		
-		
+
 		MLA.addActionListener(e -> {
 			openMLA(e);
 		});
-		
+
 		APA.addActionListener(e -> {
 			openAPA(e);
 		});
@@ -45,16 +42,14 @@ public class FormatSelectorGUI extends JFrame {
 	}
 
 	private void openMLA(ActionEvent e) {
-		
-		
+		new InputMLA().setVisible(true);
 	}
 
 	private void openAPA(ActionEvent e) {
-		
-		
+
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		new FormatSelectorGUI().setVisible(true);
+		new BibliographyGUI().setVisible(true);
 	}
 }
