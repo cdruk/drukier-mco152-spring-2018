@@ -46,7 +46,7 @@ public class BibliographyGUI extends JFrame {
 	}
 
 	private void openAPA(ActionEvent e) {
-
+		new InputAPA().setVisible(true);
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
