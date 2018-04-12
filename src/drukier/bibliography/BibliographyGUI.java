@@ -3,6 +3,7 @@ package drukier.bibliography;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
+import java.util.Map;
 
 import javax.swing.*;
 
@@ -42,7 +43,7 @@ public class BibliographyGUI extends JFrame {
 	}
 
 	private void openMLA(ActionEvent e) {
-		new InputMLA().setVisible(true);
+		MLABibliography formattedBibliography = new MLABibliography(InputDataGUI.getBibliography());
 	}
 
 	private void openAPA(ActionEvent e) {

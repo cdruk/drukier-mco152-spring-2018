@@ -14,12 +14,16 @@ public class BookAPA {
 	private String city;
 	private String state;
 	private String publisher;
-	
-	public BookAPA(String last, String first, String year, String title, String city, String state, String publisher) {
+
+	public BookAPA(String last, String first, String middle, String year, String title, String subtitle, String city,
+			String state, String publisher) {
+		super();
 		this.last = last;
 		this.first = first;
+		this.middle = middle;
 		this.year = year;
 		this.title = title;
+		this.subtitle = subtitle;
 		this.city = city;
 		this.state = state;
 		this.publisher = publisher;

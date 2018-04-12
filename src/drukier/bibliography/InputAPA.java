@@ -6,15 +6,15 @@ import javax.swing.*;
 
 public class InputAPA extends JFrame {
 	
-	private JTextField last;
-	private JTextField first;
-	private JTextField middle; // optional
-	private JTextField year;
-	private JTextField title;
-	private JTextField subtitle; // optional
-	private JTextField city;
-	private JTextField state;
-	private JTextField publisher;
+	private JTextField last = new JTextField("");
+	private JTextField first = new JTextField("");
+	private JTextField middle = new JTextField(""); // optional
+	private JTextField year = new JTextField("");
+	private JTextField title = new JTextField("");
+	private JTextField subtitle = new JTextField(""); // optional
+	private JTextField city = new JTextField("");
+	private JTextField state = new JTextField("");
+	private JTextField publisher = new JTextField("");
 	
 	public InputAPA() {
 		setTitle("Enter Bibliography Information");

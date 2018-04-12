@@ -1,39 +1,30 @@
 package drukier.bibliography;
 
-//Authors.
-//Title of the source.
-//Title of container,
-//Other contributors,
-//Version,
-//Numbers,
-//Publisher,
-//Publication date,
-//Location.
-
-//Author. Title. Title of container (self contained if book), 
-//Other contributors (translators or editors), Version (edition), Number (vol. and/or no.), 
-//Publisher, Publication Date, Location (pages, paragraphs URL or DOI).
-
-public class BookMLA {
-
+public class CitationEntry {
 	private String last;
 	private String first;
+	private String middle;
 	private String title;
-	private String chapter; // optional
-	private String other_last; // optional
-	private String other_first; // optional
-	private String edition; // optional
-	private String volume; // optional
+	private String subtitle;
+	private String chapter;
+	private String other_last;
+	private String other_first;
+	private String edition;
+	private String volume;
 	private String publisher;
 	private String year;
-	private String pages; // optional
+	private String city;
+	private String state;
+	private String pages;
 
-
-	public BookMLA(String last, String first, String title, String chapter, String other_last, String other_first,
-			String edition, String volume, String publisher, String year, String pages) {
+	public CitationEntry(String last, String first, String middle, String title, String subtitle, String chapter,
+			String other_last, String other_first, String edition, String volume, String publisher, String year,
+			String city, String state, String pages) {
 		this.last = last;
 		this.first = first;
+		this.middle = middle;
 		this.title = title;
+		this.subtitle = subtitle;
 		this.chapter = chapter;
 		this.other_last = other_last;
 		this.other_first = other_first;
@@ -41,6 +32,8 @@ public class BookMLA {
 		this.volume = volume;
 		this.publisher = publisher;
 		this.year = year;
+		this.city = city;
+		this.state = state;
 		this.pages = pages;
 	}
 
@@ -60,12 +53,28 @@ public class BookMLA {
 		this.first = first;
 	}
 
+	public String getMiddle() {
+		return middle;
+	}
+
+	public void setMiddle(String middle) {
+		this.middle = middle;
+	}
+
 	public String getTitle() {
 		return title;
 	}
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
 	}
 
 	public String getChapter() {
@@ -122,6 +131,22 @@ public class BookMLA {
 
 	public void setYear(String year) {
 		this.year = year;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public String getPages() {
