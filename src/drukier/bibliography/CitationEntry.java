@@ -12,11 +12,10 @@ public class CitationEntry {
 	private String year;
 	private String city;
 	private String state;
-	private String pages;
 	private String format;
 
 	public CitationEntry(String last, String first, String middle, String title, String chapter, String other_last,
-			String other_first, String publisher, String year, String city, String state, String pages) {
+			String other_first, String publisher, String year, String city, String state) {
 		this.last = last;
 		this.first = first;
 		this.middle = middle;
@@ -28,22 +27,22 @@ public class CitationEntry {
 		this.year = year;
 		this.city = city;
 		this.state = state;
-		this.pages = pages;
 	}
 	
 	public void setFormat(String format) {
 		this.format = format;
 	}
 
-	public void getFormat()
+	public String getFormat()
 	{
 		if (format == "MLA")
         {
-			FormatMLACitation();
+			return FormatMLACitation();
     		}
 		else {
-			FormatAPACitation();
+			return FormatAPACitation();
 		}
+		
 	}
 	
 	private String FormatMLACitation() {
@@ -99,12 +98,12 @@ public class CitationEntry {
 			return "Missing necessary value.";
 		}
 		if (first != "") {
-			citation.append(upperCaseAllFirst(first.charAt(0) + ". "));
+			citation.append((first.substring(0, 1).toUpperCase() + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
 		if (middle != "") {
-			citation.append(upperCaseAllFirst(middle.charAt(0) + ". "));
+			citation.append((middle.substring(0, 1).toUpperCase() + ". "));
 		}
 		if (year != null) {
 			citation.append("(" + year + "). ");

@@ -32,23 +32,21 @@ public class BibliographyStyleGUI extends JFrame {
 		centerPanel.add(MLA, SwingConstants.CENTER);
 		panel.add(centerPanel, BorderLayout.CENTER);
 
-		MLA.addActionListener(e -> {
-			openMLA(e);
-		});
+		MLA.addActionListener(this::openMLA);
 
-		APA.addActionListener(e -> {
-			openAPA(e);
-		});
+		APA.addActionListener(this::openAPA);
 
 		add(panel);
 	}
 
 	private void openMLA(ActionEvent e) {
 		Bibliography formattedBibliography = new Bibliography(inputDataGUI.getAlphabatized(), "MLA");
+		formattedBibliography.setVisible(true);
 	}
 
 	private void openAPA(ActionEvent e) {
 		Bibliography formattedBibliography = new Bibliography(inputDataGUI.getAlphabatized(), "APA");
+		formattedBibliography.setVisible(true);
 	}
 
 }

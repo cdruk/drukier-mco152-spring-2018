@@ -80,7 +80,7 @@ public class InputDataGUI extends JFrame {
 			CitationEntry entry = new CitationEntry(last.getText(), first.getText(), middle.getText(), title.getText(),
 					 chapter.getText(), other_last.getText(), other_first.getText(),
 					 publisher.getText(), year.getText(), city.getText(),
-					state.getText(), pages.getText());
+					state.getText());
 
 			bibliography.put(last.getText() + first.getText() + year.getText(), entry);
 
