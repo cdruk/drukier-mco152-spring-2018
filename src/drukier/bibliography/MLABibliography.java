@@ -24,14 +24,13 @@ public class MLABibliography extends JFrame {
 		Set<String> keys = bibliography.keySet();
 		for (String k : keys) {
 			panel.add(FormatCitation(), getComponent(0));
-
 		}
-
 	}
 
 	public String FormatCitation() {
 		StringBuilder citation = new StringBuilder();
 
+	if (bibliography.get(getLast())
 		return null;
 
 	}

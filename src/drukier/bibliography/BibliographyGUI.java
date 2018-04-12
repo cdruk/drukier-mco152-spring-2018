@@ -38,16 +38,16 @@ public class BibliographyGUI extends JFrame {
 			openAPA(e);
 		});
 
-		add(panel);
+		add(panel); 
 
 	}
 
 	private void openMLA(ActionEvent e) {
-		MLABibliography formattedBibliography = new MLABibliography(InputDataGUI.getBibliography());
+		MLABibliography formattedBibliography = new MLABibliography(InputDataGUI.getAlphabatized());
 	}
 
 	private void openAPA(ActionEvent e) {
-		new InputAPA().setVisible(true);
+		APABibliography formattedBibliography = new APABibliography(InputDataGUI.getAlphabatized());
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {

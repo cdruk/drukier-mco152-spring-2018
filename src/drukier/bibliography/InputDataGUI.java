@@ -30,7 +30,7 @@ public class InputDataGUI extends JFrame {
 	private JButton done = new JButton("Format Bibliography");
 
 	private Map<String, CitationEntry> bibliography = new HashMap<String, CitationEntry>(); // lastfirstyear, citation
-	private Map<String, CitationEntry> alphebatized = new LinkedHashMap<String, CitationEntry>();
+	private Map<String, CitationEntry> alphabatized = new LinkedHashMap<String, CitationEntry>();
 
 	public InputDataGUI() {
 		setTitle("Enter Bibliography Information");
@@ -87,7 +87,7 @@ public class InputDataGUI extends JFrame {
 			CitationEntry entry = new CitationEntry(last.getText(), first.getText(), middle.getText(), title.getText(), subtitle.getText(), 
 					chapter.getText(), other_last.getText(), other_first.getText(), edition.getText(), volume.getText(), publisher.getText(), 
 					year.getText(), city.getText(), state.getText(), pages.getText());
-			getBibliography().put(last.getText() + first.getText() + year.getText(), entry);
+			bibliography.put(last.getText() + first.getText() + year.getText(), entry);
 			last = new JTextField("");
 			first = new JTextField("");
 			middle = new JTextField(""); 
@@ -106,9 +106,9 @@ public class InputDataGUI extends JFrame {
 		});
 
 		done.addActionListener(e -> {
-			alphebatized = bibliography.entrySet().stream().sorted(Map.Entry.comparingByKey())
+			setAlphabatized(bibliography.entrySet().stream().sorted(Map.Entry.comparingByKey())
 					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
-							LinkedHashMap::new));
+							LinkedHashMap::new)));
 			new BibliographyGUI().setVisible(true);
 		});
 
@@ -120,12 +120,14 @@ public class InputDataGUI extends JFrame {
 		new InputDataGUI().setVisible(true);
 	}
 
-	public Map<String, CitationEntry> getBibliography() {
-		return bibliography;
+	public Map<String, CitationEntry> getAlphabatized() {
+		return alphabatized;
 	}
 
-	public void setBibliography(Map<String, CitationEntry> bibliography) {
-		this.bibliography = bibliography;
+	public void setAlphabatized(Map<String, CitationEntry> alphabatized) {
+		this.alphabatized = alphabatized;
 	}
+
+	
 
 }
