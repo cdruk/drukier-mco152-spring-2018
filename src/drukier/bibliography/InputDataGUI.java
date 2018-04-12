@@ -84,32 +84,35 @@ public class InputDataGUI extends JFrame {
 		panel.add(done);
 
 		entry.addActionListener(e -> {
-			CitationEntry entry = new CitationEntry(last.getText(), first.getText(), middle.getText(), title.getText(), subtitle.getText(), 
-					chapter.getText(), other_last.getText(), other_first.getText(), edition.getText(), volume.getText(), publisher.getText(), 
-					year.getText(), city.getText(), state.getText(), pages.getText());
+			CitationEntry entry = new CitationEntry(last.getText(), first.getText(), middle.getText(), title.getText(),
+					subtitle.getText(), chapter.getText(), other_last.getText(), other_first.getText(),
+					edition.getText(), volume.getText(), publisher.getText(), year.getText(), city.getText(),
+					state.getText(), pages.getText());
+
 			bibliography.put(last.getText() + first.getText() + year.getText(), entry);
-			last = new JTextField("");
-			first = new JTextField("");
-			middle = new JTextField(""); 
-			title = new JTextField("");
-			subtitle = new JTextField("");
-			chapter = new JTextField("");
-			other_last = new JTextField("");
-			other_first = new JTextField("");
-			edition = new JTextField("");
-			volume = new JTextField(""); 
-			publisher = new JTextField("");
-			year = new JTextField("");
-			city = new JTextField("");
-			state = new JTextField("");
-			pages = new JTextField("");
+
+			last.setText("");
+			first.setText("");
+			middle.setText("");
+			title.setText("");
+			subtitle.setText("");
+			chapter.setText("");
+			other_last.setText("");
+			other_first.setText("");
+			edition.setText("");
+			volume.setText("");
+			publisher.setText("");
+			year.setText("");
+			city.setText("");
+			state.setText("");
+			pages.setText("");
 		});
 
 		done.addActionListener(e -> {
 			setAlphabatized(bibliography.entrySet().stream().sorted(Map.Entry.comparingByKey())
 					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
 							LinkedHashMap::new)));
-			new BibliographyGUI().setVisible(true);
+			new BibliographyStyleGUI(this).setVisible(true);
 		});
 
 		add(panel);
@@ -127,7 +130,5 @@ public class InputDataGUI extends JFrame {
 	public void setAlphabatized(Map<String, CitationEntry> alphabatized) {
 		this.alphabatized = alphabatized;
 	}
-
-	
 
 }

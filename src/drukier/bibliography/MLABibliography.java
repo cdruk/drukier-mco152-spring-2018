@@ -30,7 +30,7 @@ public class MLABibliography extends JFrame {
 	public String FormatCitation() {
 		StringBuilder citation = new StringBuilder();
 
-	if (bibliography.get(getLast())
+
 		return null;
 
 	}

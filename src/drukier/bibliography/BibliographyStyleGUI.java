@@ -7,12 +7,14 @@ import java.util.Map;
 
 import javax.swing.*;
 
-public class BibliographyGUI extends JFrame {
+public class BibliographyStyleGUI extends JFrame {
 
 	private JButton MLA = new JButton("MLA");
 	private JButton APA = new JButton("APA");
+	private InputDataGUI inputDataGUI;
 
-	public BibliographyGUI() {
+	public BibliographyStyleGUI(InputDataGUI inputDataGUI) {
+		this.inputDataGUI = inputDataGUI;
 		setTitle("Chose Citation Format");
 		setSize(400, 100);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -38,19 +40,16 @@ public class BibliographyGUI extends JFrame {
 			openAPA(e);
 		});
 
-		add(panel); 
-
+		add(panel);
 	}
 
 	private void openMLA(ActionEvent e) {
-		MLABibliography formattedBibliography = new MLABibliography(InputDataGUI.getAlphabatized());
+		MLABibliography formattedBibliography = new MLABibliography(inputDataGUI.getAlphabatized());
 	}
 
 	private void openAPA(ActionEvent e) {
-		APABibliography formattedBibliography = new APABibliography(InputDataGUI.getAlphabatized());
+		// APABibliography formattedBibliography = new
+		// APABibliography(InputDataGUI.getAlphabatized());
 	}
 
-	public static void main(String[] args) throws FileNotFoundException {
-		new BibliographyGUI().setVisible(true);
-	}
 }
