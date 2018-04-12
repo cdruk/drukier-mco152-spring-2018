@@ -5,156 +5,151 @@ public class CitationEntry {
 	private String first;
 	private String middle;
 	private String title;
-	private String subtitle;
 	private String chapter;
 	private String other_last;
 	private String other_first;
-	private String edition;
-	private String volume;
 	private String publisher;
 	private String year;
 	private String city;
 	private String state;
 	private String pages;
+	private String format;
 
-	public CitationEntry(String last, String first, String middle, String title, String subtitle, String chapter,
-			String other_last, String other_first, String edition, String volume, String publisher, String year,
-			String city, String state, String pages) {
+	public CitationEntry(String last, String first, String middle, String title, String chapter, String other_last,
+			String other_first, String publisher, String year, String city, String state, String pages) {
 		this.last = last;
 		this.first = first;
 		this.middle = middle;
 		this.title = title;
-		this.subtitle = subtitle;
 		this.chapter = chapter;
 		this.other_last = other_last;
 		this.other_first = other_first;
-		this.edition = edition;
-		this.volume = volume;
 		this.publisher = publisher;
 		this.year = year;
 		this.city = city;
 		this.state = state;
 		this.pages = pages;
 	}
-
-	public String getLast() {
-		return last;
+	
+	public void setFormat(String format) {
+		this.format = format;
 	}
 
-	public void setLast(String last) {
-		this.last = last;
+	public void getFormat()
+	{
+		if (format == "MLA")
+        {
+			FormatMLACitation();
+    		}
+		else {
+			FormatAPACitation();
+		}
+	}
+	
+	private String FormatMLACitation() {
+		StringBuilder citation = new StringBuilder();
+		if (last != "") {
+			citation.append(upperCaseAllFirst(last + ", "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (first != "") {
+			citation.append(upperCaseAllFirst(first + ". "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (chapter != "") {
+			citation.append(upperCaseAllFirst("\"" + chapter + ".\" "));
+		}
+		if (title != "") {
+			citation.append(upperCaseAllFirst(title + ". "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (other_last != null) {
+			citation.append(upperCaseAllFirst("edited by " + other_last + ", "));
+		}
+		if (other_first != null) {
+			citation.append(upperCaseAllFirst(other_first + ", "));
+		}
+		if (publisher != null) {
+			citation.append(upperCaseAllFirst(publisher + ", "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (year != null) {
+			citation.append(year);
+		} else {
+			return "Missing necessary value.";
+		}
+		if (city != null) {
+			citation.append(upperCaseAllFirst(", " + city + ". "));
+		} else {
+			citation.append(". ");
+		}
+		return citation.toString();
 	}
 
-	public String getFirst() {
-		return first;
+	private String FormatAPACitation() {
+
+		StringBuilder citation = new StringBuilder();
+		if (last != "") {
+			citation.append(upperCaseAllFirst(last + ", "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (first != "") {
+			citation.append(upperCaseAllFirst(first.charAt(0) + ". "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (middle != "") {
+			citation.append(upperCaseAllFirst(middle.charAt(0) + ". "));
+		}
+		if (year != null) {
+			citation.append("(" + year + "). ");
+		} else {
+			return "Missing necessary value.";
+		}
+		if (title != "") {
+			citation.append(upperCaseFirst(title + ". "));
+		} else {
+			return "Missing necessary value.";
+		}
+		if (city != null) {
+			citation.append(upperCaseAllFirst(city + ", "));
+		} else {
+			citation.append(". ");
+		}
+		if (state != null) {
+			citation.append((state.toUpperCase() + ": "));
+		} else {
+			citation.append(". ");
+		}
+		if (publisher != null) {
+			citation.append(upperCaseAllFirst(publisher + ". "));
+		} else {
+			return "Missing necessary value.";
+		}
+		return citation.toString();
 	}
 
-	public void setFirst(String first) {
-		this.first = first;
+	public static String upperCaseFirst(String value) {
+		char[] array = value.toCharArray();
+		array[0] = Character.toUpperCase(array[0]);
+		return new String(array);
 	}
 
-	public String getMiddle() {
-		return middle;
-	}
+	public static String upperCaseAllFirst(String value) {
+		char[] array = value.toCharArray();
+		array[0] = Character.toUpperCase(array[0]);
 
-	public void setMiddle(String middle) {
-		this.middle = middle;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getSubtitle() {
-		return subtitle;
-	}
-
-	public void setSubtitle(String subtitle) {
-		this.subtitle = subtitle;
-	}
-
-	public String getChapter() {
-		return chapter;
-	}
-
-	public void setChapter(String chapter) {
-		this.chapter = chapter;
-	}
-
-	public String getOther_last() {
-		return other_last;
-	}
-
-	public void setOther_last(String other_last) {
-		this.other_last = other_last;
-	}
-
-	public String getOther_first() {
-		return other_first;
-	}
-
-	public void setOther_first(String other_first) {
-		this.other_first = other_first;
-	}
-
-	public String getEdition() {
-		return edition;
-	}
-
-	public void setEdition(String edition) {
-		this.edition = edition;
-	}
-
-	public String getVolume() {
-		return volume;
-	}
-
-	public void setVolume(String volume) {
-		this.volume = volume;
-	}
-
-	public String getPublisher() {
-		return publisher;
-	}
-
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
-
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getPages() {
-		return pages;
-	}
-
-	public void setPages(String pages) {
-		this.pages = pages;
+		for (int i = 1; i < array.length; i++) {
+			if (Character.isWhitespace(array[i - 1])) {
+				array[i] = Character.toUpperCase(array[i]);
+			}
+		}
+		return new String(array);
 	}
 
 }

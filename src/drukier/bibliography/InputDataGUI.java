@@ -49,8 +49,6 @@ public class InputDataGUI extends JFrame {
 
 		panel.add(new JLabel("Title*^", SwingConstants.CENTER));
 		panel.add(title);
-		panel.add(new JLabel("Subtitle", SwingConstants.CENTER));
-		panel.add(subtitle);
 		panel.add(new JLabel("Chapter", SwingConstants.CENTER));
 		panel.add(chapter);
 
@@ -58,11 +56,6 @@ public class InputDataGUI extends JFrame {
 		panel.add(other_last);
 		panel.add(new JLabel("Editor First Name", SwingConstants.CENTER));
 		panel.add(other_first);
-
-		panel.add(new JLabel("Edition", SwingConstants.CENTER));
-		panel.add(edition);
-		panel.add(new JLabel("Volume", SwingConstants.CENTER));
-		panel.add(volume);
 
 		panel.add(new JLabel("Publisher*^", SwingConstants.CENTER));
 		panel.add(publisher);
@@ -85,8 +78,8 @@ public class InputDataGUI extends JFrame {
 
 		entry.addActionListener(e -> {
 			CitationEntry entry = new CitationEntry(last.getText(), first.getText(), middle.getText(), title.getText(),
-					subtitle.getText(), chapter.getText(), other_last.getText(), other_first.getText(),
-					edition.getText(), volume.getText(), publisher.getText(), year.getText(), city.getText(),
+					 chapter.getText(), other_last.getText(), other_first.getText(),
+					 publisher.getText(), year.getText(), city.getText(),
 					state.getText(), pages.getText());
 
 			bibliography.put(last.getText() + first.getText() + year.getText(), entry);
@@ -99,8 +92,6 @@ public class InputDataGUI extends JFrame {
 			chapter.setText("");
 			other_last.setText("");
 			other_first.setText("");
-			edition.setText("");
-			volume.setText("");
 			publisher.setText("");
 			year.setText("");
 			city.setText("");

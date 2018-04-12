@@ -20,7 +20,7 @@ public class APABibliography extends JFrame {
 	}
 
 	public void CreateBibliography() {
-		setTitle("Your MLA Bibliography");
+		setTitle("Your APA Bibliography");
 		setSize(400, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -35,10 +35,4 @@ public class APABibliography extends JFrame {
 
 	}
 
-	public String FormatCitation() {
-		StringBuilder citation = new StringBuilder();
-
-		return null;
-
-	}
 }

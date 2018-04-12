@@ -1,15 +1,17 @@
 package drukier.bibliography;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MLABibliography extends JFrame {
+public class Bibliography extends JFrame {
 	private Map<String, CitationEntry> bibliography;
 
-	public MLABibliography(Map<String, CitationEntry> bibliography) {
+	public Bibliography(Map<String, CitationEntry> bibliography, String format) {
 		this.bibliography = bibliography;
 	}
 
@@ -21,17 +23,11 @@ public class MLABibliography extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-		Set<String> keys = bibliography.keySet();
-		for (String k : keys) {
-			panel.add(FormatCitation(), getComponent(0));
+		Collection c = bibliography.values();
+		Iterator itr = c.iterator();
+		while (itr.hasNext()) {
+			CitationEntry.FormatMLACitation()
 		}
-	}
-
-	public String FormatCitation() {
-		StringBuilder citation = new StringBuilder();
-
-
-		return null;
 
 	}
 }

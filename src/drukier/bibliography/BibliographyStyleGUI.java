@@ -44,12 +44,11 @@ public class BibliographyStyleGUI extends JFrame {
 	}
 
 	private void openMLA(ActionEvent e) {
-		MLABibliography formattedBibliography = new MLABibliography(inputDataGUI.getAlphabatized());
+		Bibliography formattedBibliography = new Bibliography(inputDataGUI.getAlphabatized(), "MLA");
 	}
 
 	private void openAPA(ActionEvent e) {
-		// APABibliography formattedBibliography = new
-		// APABibliography(InputDataGUI.getAlphabatized());
+		Bibliography formattedBibliography = new Bibliography(inputDataGUI.getAlphabatized(), "APA");
 	}
 
 }
