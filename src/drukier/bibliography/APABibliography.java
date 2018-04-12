@@ -1,16 +1,22 @@
 package drukier.bibliography;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MLABibliography extends JFrame {
+public class APABibliography extends JFrame {
 	private Map<String, CitationEntry> bibliography;
 
-	public MLABibliography(Map<String, CitationEntry> bibliography) {
+	public APABibliography(Map<String, CitationEntry> bibliography) {
 		this.bibliography = bibliography;
+
 	}
 
 	public void CreateBibliography() {

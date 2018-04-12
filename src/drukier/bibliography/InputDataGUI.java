@@ -3,7 +3,9 @@ package drukier.bibliography;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.swing.*;
 
@@ -28,6 +30,7 @@ public class InputDataGUI extends JFrame {
 	private JButton done = new JButton("Format Bibliography");
 
 	private Map<String, CitationEntry> bibliography = new HashMap<String, CitationEntry>(); // lastfirstyear, citation
+	private Map<String, CitationEntry> alphebatized = new LinkedHashMap<String, CitationEntry>();
 
 	public InputDataGUI() {
 		setTitle("Enter Bibliography Information");
@@ -103,6 +106,9 @@ public class InputDataGUI extends JFrame {
 		});
 
 		done.addActionListener(e -> {
+			alphebatized = bibliography.entrySet().stream().sorted(Map.Entry.comparingByKey())
+					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
+							LinkedHashMap::new));
 			new BibliographyGUI().setVisible(true);
 		});
 
