@@ -65,23 +65,23 @@ public class CitationEntry {
 		} else {
 			return "Missing necessary value.";
 		}
-		if (other_last != null) {
-			citation.append(upperCaseAllFirst("edited by " + other_last + ", "));
+		if (other_last != "") {
+			citation.append("edited by " + upperCaseFirst(other_last) + ", ");
 		}
-		if (other_first != null) {
+		if (other_first != "") {
 			citation.append(upperCaseAllFirst(other_first + ", "));
 		}
-		if (publisher != null) {
+		if (publisher != "") {
 			citation.append(upperCaseAllFirst(publisher + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (year != null) {
+		if (year != "") {
 			citation.append(year);
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city != null) {
+		if (city != "") {
 			citation.append(upperCaseAllFirst(", " + city + ". "));
 		} else {
 			citation.append(". ");
@@ -105,7 +105,7 @@ public class CitationEntry {
 		if (middle != "") {
 			citation.append((middle.substring(0, 1).toUpperCase() + ". "));
 		}
-		if (year != null) {
+		if (year != "") {
 			citation.append("(" + year + "). ");
 		} else {
 			return "Missing necessary value.";
@@ -115,17 +115,17 @@ public class CitationEntry {
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city != null) {
+		if (city != "") {
 			citation.append(upperCaseAllFirst(city + ", "));
 		} else {
 			citation.append(". ");
 		}
-		if (state != null) {
+		if (state != "") {
 			citation.append((state.toUpperCase() + ": "));
 		} else {
 			citation.append(". ");
 		}
-		if (publisher != null) {
+		if (publisher != "") {
 			citation.append(upperCaseAllFirst(publisher + ". "));
 		} else {
 			return "Missing necessary value.";

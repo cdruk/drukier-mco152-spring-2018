@@ -18,13 +18,10 @@ public class InputDataGUI extends JFrame {
 	private JTextField chapter = new JTextField(""); // optional
 	private JTextField other_last = new JTextField(""); // optional
 	private JTextField other_first = new JTextField(""); // optional
-	private JTextField edition = new JTextField(""); // optional
-	private JTextField volume = new JTextField(""); // optional
 	private JTextField publisher = new JTextField("");
 	private JTextField year = new JTextField("");
 	private JTextField city = new JTextField("");
 	private JTextField state = new JTextField("");
-	private JTextField pages = new JTextField(""); // optional
 
 	private JButton entry = new JButton("Add Entry");
 	private JButton done = new JButton("Format Bibliography");
@@ -65,8 +62,7 @@ public class InputDataGUI extends JFrame {
 		panel.add(city);
 		panel.add(new JLabel("State^", SwingConstants.CENTER));
 		panel.add(state);
-		panel.add(new JLabel("Pages", SwingConstants.CENTER));
-		panel.add(pages);
+		
 
 		panel.add(new JLabel("* = required field for MLA", SwingConstants.CENTER));
 		panel.add(new JLabel("^ = required field for APA", SwingConstants.CENTER));
@@ -96,7 +92,6 @@ public class InputDataGUI extends JFrame {
 			year.setText("");
 			city.setText("");
 			state.setText("");
-			pages.setText("");
 		});
 
 		done.addActionListener(e -> {
