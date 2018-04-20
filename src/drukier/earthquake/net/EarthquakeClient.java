@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class EarthquakeClient {
 
-	public static void main(String[] args)throws IOException {
+	public static void main(String[] args) throws IOException {
 		
 		URL url = new URL("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -19,7 +19,7 @@ public class EarthquakeClient {
 		InputStream in = connection.getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		Gson gson = new Gson();
-		EarthquakeFeed = gson.fromJson(reader, EarthquakeFeed.class);
+		EarthquakeFeed feed = gson.fromJson(reader, EarthquakeFeed.class);
 		
 		System.out.println(
 				feed.getFeatures()
