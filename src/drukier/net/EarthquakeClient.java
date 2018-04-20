@@ -1,4 +1,4 @@
-package drukier.earthquake.net;
+package drukier.net;
 
 import com.google.gson.Gson;
 import java.io.InputStream;
