@@ -1,6 +1,9 @@
-package drukier.net;
+package drukier.earthquake.net;
 
 import com.google.gson.Gson;
+
+import drukier.earthquake.EarthquakeFeed;
+
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;

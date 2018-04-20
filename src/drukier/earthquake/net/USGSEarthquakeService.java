@@ -1,5 +1,6 @@
-package drukier.net;
+package drukier.earthquake.net;
 
+import drukier.earthquake.EarthquakeFeed;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

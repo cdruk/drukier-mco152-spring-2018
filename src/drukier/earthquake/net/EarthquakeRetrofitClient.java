@@ -1,12 +1,13 @@
-package drukier.net;
+package drukier.earthquake.net;
 
+import drukier.earthquake.EarthquakeFeed;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class EarthquakeRetrofirClient {
+public class EarthquakeRetrofitClient {
 
 	public static void main(String[] args) {
 
@@ -34,7 +35,7 @@ public class EarthquakeRetrofirClient {
 			}
 			
 			@Override
-			public void onFailure(Call<EarthquakeFeed> call, Throwable t {
+			public void onFailure(Call<EarthquakeFeed> call, Throwable t) {
 			t.printStackTrace();
 			}
 		
