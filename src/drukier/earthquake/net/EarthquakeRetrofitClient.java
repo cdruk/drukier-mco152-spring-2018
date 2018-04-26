@@ -33,6 +33,7 @@ public class EarthquakeRetrofitClient {
 
 				String mMag = (String.valueOf(largestMonth.get().getProperties().getMag()));
 				String mPlace = (String.valueOf(largestMonth.get().getProperties().getPlace()));
+				EarthquakeGUI.setmMag(mMag);
 
 			}
 
@@ -42,7 +43,6 @@ public class EarthquakeRetrofitClient {
 			}
 
 		});
-
 	}
 
 }
