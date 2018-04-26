@@ -13,7 +13,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class EarthquakeRetrofitClient {
 
-	public static void main(String[] args) {
+	private String mMag;
+	private String mPlace;
+	
+	public EarthquakeRetrofitClient() {
 
 		Retrofit retrofit = new Retrofit.Builder().baseUrl("https://earthquake.usgs.gov")
 				.addConverterFactory(GsonConverterFactory.create()).build();
@@ -31,9 +34,9 @@ public class EarthquakeRetrofitClient {
 				Optional<Earthquake> largestMonth = mFeed.getFeatures().stream()
 						.max(Comparator.comparing(e -> e.getProperties().getMag()));
 
-				String mMag = (String.valueOf(largestMonth.get().getProperties().getMag()));
-				String mPlace = (String.valueOf(largestMonth.get().getProperties().getPlace()));
-				EarthquakeGUI.setmMag(mMag);
+				setmMag((String.valueOf(largestMonth.get().getProperties().getMag())));
+				setmPlace((String.valueOf(largestMonth.get().getProperties().getPlace())));
+				
 
 			}
 
@@ -44,5 +47,22 @@ public class EarthquakeRetrofitClient {
 
 		});
 	}
+
+	public String getmMag() {
+		return mMag;
+	}
+
+	public void setmMag(String mMag) {
+		this.mMag = mMag;
+	}
+
+	public String getmPlace() {
+		return mPlace;
+	}
+
+	public void setmPlace(String mPlace) {
+		this.mPlace = mPlace;
+	}
+
 
 }
