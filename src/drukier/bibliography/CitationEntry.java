@@ -35,7 +35,7 @@ public class CitationEntry {
 
 	public String getFormat()
 	{
-		if (format == "MLA")
+		if ("MLA".equals(format))
         {
 			return FormatMLACitation();
     		}
