@@ -28,8 +28,7 @@ public class Bibliography extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-		bibliography.forEach((k, v) -> v.setFormat(format));
-		bibliography.forEach((k, v) -> panel.add(new JLabel(v.getFormat())));
+		bibliography.forEach((k, v) -> panel.add(new JLabel(v.requestFormat(format))));
 		
 		add(panel);
 		

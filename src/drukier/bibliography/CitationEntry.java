@@ -12,7 +12,7 @@ public class CitationEntry {
 	private String year;
 	private String city;
 	private String state;
-	private String format;
+
 
 	public CitationEntry(String last, String first, String middle, String title, String chapter, String other_last,
 			String other_first, String publisher, String year, String city, String state) {
@@ -28,60 +28,53 @@ public class CitationEntry {
 		this.city = city;
 		this.state = state;
 	}
-	
-	public void setFormat(String format) {
-		this.format = format;
+
+	public String requestFormat(String format) {
+		if ("MLA".equals(format)) {
+			return formatMLACitation();
+		} else {
+			return formatAPACitation();
+		}
+
 	}
 
-	public String getFormat()
-	{
-		if ("MLA".equals(format))
-        {
-			return FormatMLACitation();
-    		}
-		else {
-			return FormatAPACitation();
-		}
-		
-	}
-	
-	private String FormatMLACitation() {
+	private String formatMLACitation() {
 		StringBuilder citation = new StringBuilder();
-		if (last != "") {
+		if (last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (first != "") {
+		if (first.equals("")) {
 			citation.append(upperCaseAllFirst(first + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (chapter != "") {
+		if (chapter.equals("")) {
 			citation.append(upperCaseAllFirst("\"" + chapter + ".\" "));
 		}
-		if (title != "") {
+		if (title.equals("")) {
 			citation.append(upperCaseAllFirst(title + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (other_last != "") {
+		if (other_last.equals("")) {
 			citation.append("edited by " + upperCaseFirst(other_last) + ", ");
 		}
-		if (other_first != "") {
+		if (other_first.equals("")) {
 			citation.append(upperCaseAllFirst(other_first + ", "));
 		}
-		if (publisher != "") {
+		if (publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (year != "") {
+		if (year.equals("")) {
 			citation.append(year);
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city != "") {
+		if (city.equals("")) {
 			citation.append(upperCaseAllFirst(", " + city + ". "));
 		} else {
 			citation.append(". ");
@@ -89,43 +82,43 @@ public class CitationEntry {
 		return citation.toString();
 	}
 
-	private String FormatAPACitation() {
+	private String formatAPACitation() {
 
 		StringBuilder citation = new StringBuilder();
-		if (last != "") {
+		if (last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (first != "") {
+		if (first.equals("")) {
 			citation.append((first.substring(0, 1).toUpperCase() + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (middle != "") {
+		if (middle.equals("")) {
 			citation.append((middle.substring(0, 1).toUpperCase() + ". "));
 		}
-		if (year != "") {
+		if (year.equals("")) {
 			citation.append("(" + year + "). ");
 		} else {
 			return "Missing necessary value.";
 		}
-		if (title != "") {
+		if (title.equals("")) {
 			citation.append(upperCaseFirst(title + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city != "") {
+		if (city.equals("")) {
 			citation.append(upperCaseAllFirst(city + ", "));
 		} else {
 			citation.append(". ");
 		}
-		if (state != "") {
+		if (state.equals("")) {
 			citation.append((state.toUpperCase() + ": "));
 		} else {
 			citation.append(". ");
 		}
-		if (publisher != "") {
+		if (publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ". "));
 		} else {
 			return "Missing necessary value.";
