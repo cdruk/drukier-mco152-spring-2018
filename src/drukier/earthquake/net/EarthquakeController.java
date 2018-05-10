@@ -38,16 +38,7 @@ public class EarthquakeController {
 			public void onResponse(Call<EarthquakeFeed> mCall, Response<EarthquakeFeed> response) {
 				EarthquakeFeed feed = response.body();
 
-				Optional<Earthquake> largest = feed.getFeatures().stream()
-						.max(Comparator.comparing(e -> e.getProperties().getMag()));
-
-				EarthquakeProperties properties = largest.get().getProperties();
-
-				String magnitude = String.valueOf(properties.getMag());
-				magField.setText(magnitude);
-				
-				String location = String.valueOf(properties.getPlace());
-				locField.setText(location);
+				showLargestEarthquake(feed, magField, locField);
 			}
 
 			@Override
@@ -58,23 +49,36 @@ public class EarthquakeController {
 		});
 	}
 
-	public void requestHour()
+	void requestHour()
 	{
 		requestEarthquakeFeed(service.getAllHour(), view.getHourMagTextField(), view.getHourLocTextField());
 	}
 	
-	public void requestDay()
+	void requestDay()
 	{
 		requestEarthquakeFeed(service.getAllDay(), view.getDayMagTextField(), view.getDayLocTextField());
 	}
 	
-	public void requestWeek()
+	void requestWeek()
 	{
 		requestEarthquakeFeed(service.getAllWeek(), view.getWeekMagTextField(), view.getWeekLocTextField());
 	}
 	
-	public void requestMonth()
+	void requestMonth()
 	{
 		requestEarthquakeFeed(service.getAllMonth(), view.getMonthMagTextField(), view.getMonthLocTextField());
+	}
+
+	void showLargestEarthquake(EarthquakeFeed feed, JTextComponent magField, JTextComponent locField) {
+		Optional<Earthquake> largest = feed.getFeatures().stream()
+				.max(Comparator.comparing(e -> e.getProperties().getMag()));
+
+		EarthquakeProperties properties = largest.get().getProperties();
+
+		String magnitude = String.valueOf(properties.getMag());
+		magField.setText(magnitude);
+		
+		String location = String.valueOf(properties.getPlace());
+		locField.setText(location);
 	}
 }
