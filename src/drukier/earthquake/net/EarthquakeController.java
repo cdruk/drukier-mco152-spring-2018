@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import javax.swing.text.JTextComponent;
 
+import com.google.inject.Inject;
+
 import drukier.earthquake.Earthquake;
 import drukier.earthquake.EarthquakeFeed;
 import drukier.earthquake.EarthquakeProperties;
@@ -17,6 +19,7 @@ public class EarthquakeController {
 	private EarthquakeView view;
 	private USGSEarthquakeService service;
 
+	@Inject
 	public EarthquakeController(EarthquakeView view, USGSEarthquakeService service) {
 		this.view = view;
 		this.service = service;

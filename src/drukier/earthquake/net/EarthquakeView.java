@@ -9,9 +9,15 @@ import java.io.FileNotFoundException;
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Singleton;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@Singleton
 public class EarthquakeView extends JFrame {
 
 	private JTextField hMag;
@@ -22,20 +28,20 @@ public class EarthquakeView extends JFrame {
 	private JTextField wPlace;
 	private JTextField mMag;
 	private JTextField mPlace;
-
-	public EarthquakeView(EarthquakeRetrofitClient earthquake) {
+	
+	public EarthquakeView() {
 		setTitle("Largest Earthquake");
 		setSize(800, 400);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-		hMag = new JTextField(earthquake.gethMag());
-		hPlace = new JTextField(earthquake.gethPlace());
-		dMag = new JTextField(earthquake.getdMag());
-		dPlace = new JTextField(earthquake.getdPlace());
-		wMag = new JTextField(earthquake.getwMag());
-		wPlace = new JTextField(earthquake.getwPlace());
-		mMag = new JTextField(earthquake.getmMag());
-		mPlace = new JTextField(earthquake.getmPlace());
+		hMag = new JTextField();
+		hPlace = new JTextField();
+		dMag = new JTextField();
+		dPlace = new JTextField();
+		wMag = new JTextField();
+		wPlace = new JTextField();
+		mMag = new JTextField();
+		mPlace = new JTextField();
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
@@ -59,15 +65,6 @@ public class EarthquakeView extends JFrame {
 		panel.add(mainPanel, BorderLayout.CENTER);
 
 		add(panel);
-
-		Retrofit retrofit = new Retrofit.Builder().baseUrl("https://earthquake.usgs.gov")
-				.addConverterFactory(GsonConverterFactory.create()).build();
-
-		USGSEarthquakeService service = retrofit.create(USGSEarthquakeService.class);
-
-		EarthquakeController controller = new EarthquakeController(this, service);
-		controller.refreshData();
-
 	}
 
 	public JTextComponent getHourMagTextField() {
@@ -103,8 +100,16 @@ public class EarthquakeView extends JFrame {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		EarthquakeRetrofitClient earthquake = new EarthquakeRetrofitClient();
-		new EarthquakeView(earthquake).setVisible(true);
+		
+		Injector injector = Guice.createInjector(new EarthquakeModule());
+		
+		EarthquakeView view = injector.getInstance(EarthquakeView.class);
+		
+		EarthquakeController controller = injector.getInstance(EarthquakeController.class);
+		
+		controller.refreshData();
+		
+		view.setVisible(true);
 	}
 
 }
