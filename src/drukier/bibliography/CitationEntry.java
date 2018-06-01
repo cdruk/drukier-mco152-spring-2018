@@ -43,12 +43,12 @@ public class CitationEntry {
 		if (!last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Last Name";
 		}
 		if (!first.equals("")) {
 			citation.append(upperCaseAllFirst(first + ". "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: First Name";
 		}
 		if (!chapter.equals("")) {
 			citation.append(upperCaseAllFirst("\"" + chapter + ".\" "));
@@ -56,7 +56,7 @@ public class CitationEntry {
 		if (!title.equals("")) {
 			citation.append(upperCaseAllFirst(title + ". "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Title";
 		}
 		if (!other_last.equals("")) {
 			citation.append("edited by " + upperCaseFirst(other_last) + ", ");
@@ -67,12 +67,12 @@ public class CitationEntry {
 		if (!publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ", "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Publisher";
 		}
 		if (!year.equals("")) {
 			citation.append(year);
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Year";
 		}
 		if (!city.equals("")) {
 			citation.append(upperCaseAllFirst(", " + city + ". "));
@@ -88,12 +88,12 @@ public class CitationEntry {
 		if (!last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Last Name";
 		}
 		if (!first.equals("")) {
 			citation.append((first.substring(0, 1).toUpperCase() + ". "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: First Name";
 		}
 		if (!middle.equals("")) {
 			citation.append((middle.substring(0, 1).toUpperCase() + ". "));
@@ -101,12 +101,12 @@ public class CitationEntry {
 		if (!year.equals("")) {
 			citation.append("(" + year + "). ");
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Year";
 		}
 		if (!title.equals("")) {
 			citation.append(upperCaseFirst(title + ". "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Title";
 		}
 		if (!city.equals("")) {
 			citation.append(upperCaseAllFirst(city + ", "));
@@ -121,7 +121,7 @@ public class CitationEntry {
 		if (!publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ". "));
 		} else {
-			return "Missing necessary value.";
+			return "Missing necessary value: Publisher";
 		}
 		return citation.toString();
 	}
