@@ -40,41 +40,41 @@ public class CitationEntry {
 
 	private String formatMLACitation() {
 		StringBuilder citation = new StringBuilder();
-		if (last.equals("")) {
+		if (!last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (first.equals("")) {
+		if (!first.equals("")) {
 			citation.append(upperCaseAllFirst(first + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (chapter.equals("")) {
+		if (!chapter.equals("")) {
 			citation.append(upperCaseAllFirst("\"" + chapter + ".\" "));
 		}
-		if (title.equals("")) {
+		if (!title.equals("")) {
 			citation.append(upperCaseAllFirst(title + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (other_last.equals("")) {
+		if (!other_last.equals("")) {
 			citation.append("edited by " + upperCaseFirst(other_last) + ", ");
 		}
-		if (other_first.equals("")) {
+		if (!other_first.equals("")) {
 			citation.append(upperCaseAllFirst(other_first + ", "));
 		}
-		if (publisher.equals("")) {
+		if (!publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (year.equals("")) {
+		if (!year.equals("")) {
 			citation.append(year);
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city.equals("")) {
+		if (!city.equals("")) {
 			citation.append(upperCaseAllFirst(", " + city + ". "));
 		} else {
 			citation.append(". ");
@@ -85,40 +85,40 @@ public class CitationEntry {
 	private String formatAPACitation() {
 
 		StringBuilder citation = new StringBuilder();
-		if (last.equals("")) {
+		if (!last.equals("")) {
 			citation.append(upperCaseAllFirst(last + ", "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (first.equals("")) {
+		if (!first.equals("")) {
 			citation.append((first.substring(0, 1).toUpperCase() + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (middle.equals("")) {
+		if (!middle.equals("")) {
 			citation.append((middle.substring(0, 1).toUpperCase() + ". "));
 		}
-		if (year.equals("")) {
+		if (!year.equals("")) {
 			citation.append("(" + year + "). ");
 		} else {
 			return "Missing necessary value.";
 		}
-		if (title.equals("")) {
+		if (!title.equals("")) {
 			citation.append(upperCaseFirst(title + ". "));
 		} else {
 			return "Missing necessary value.";
 		}
-		if (city.equals("")) {
+		if (!city.equals("")) {
 			citation.append(upperCaseAllFirst(city + ", "));
 		} else {
 			citation.append(". ");
 		}
-		if (state.equals("")) {
+		if (!state.equals("")) {
 			citation.append((state.toUpperCase() + ": "));
 		} else {
 			citation.append(". ");
 		}
-		if (publisher.equals("")) {
+		if (!publisher.equals("")) {
 			citation.append(upperCaseAllFirst(publisher + ". "));
 		} else {
 			return "Missing necessary value.";
