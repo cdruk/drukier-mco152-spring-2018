@@ -2,9 +2,12 @@ package drukier.bibliography;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import javax.swing.*;
@@ -27,7 +30,7 @@ public class InputDataGUI extends JFrame {
 	private JButton done = new JButton("Format Bibliography");
 
 	private Map<String, CitationEntry> bibliography = new HashMap<String, CitationEntry>(); // lastfirstyear, citation
-	private Map<String, CitationEntry> alphabatized = new LinkedHashMap<String, CitationEntry>();
+	private List<CitationEntry> alphabatizedList = new ArrayList<CitationEntry>();
 
 	public InputDataGUI() {
 		setTitle("Enter Bibliography Information");
@@ -95,9 +98,11 @@ public class InputDataGUI extends JFrame {
 		});
 
 		done.addActionListener(e -> {
-			setAlphabatized(bibliography.entrySet().stream().sorted(Map.Entry.comparingByKey())
-					.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue,
-							LinkedHashMap::new)));
+			setAlphabatized(bibliography.entrySet()
+					.stream()
+					.sorted(Map.Entry.comparingByKey())
+					.map((o) -> o.getValue())
+					.collect(Collectors.toList()));
 			new BibliographyStyleGUI(this).setVisible(true);
 		});
 
@@ -109,12 +114,12 @@ public class InputDataGUI extends JFrame {
 		new InputDataGUI().setVisible(true);
 	}
 
-	public Map<String, CitationEntry> getAlphabatized() {
-		return alphabatized;
+	public List<CitationEntry> getAlphabatized() {
+		return alphabatizedList;
 	}
 
-	public void setAlphabatized(Map<String, CitationEntry> alphabatized) {
-		this.alphabatized = alphabatized;
+	public void setAlphabatized(List<CitationEntry> list) {
+		this.alphabatizedList = list;
 	}
 
 }
